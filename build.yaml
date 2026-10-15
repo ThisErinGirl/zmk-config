@@ -27,3 +27,4 @@ include:
     shield: splitkb_aurora_lily58_right
   - board: nice_nano_v2
     shield: settings_reset
+    
