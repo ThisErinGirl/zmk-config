@@ -7,6 +7,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+&sensors {
+    triggers-per-rotation = <36>;
+};
+
 / {
     macros {
         pc_sleep: pc_sleep {
