@@ -70,7 +70,7 @@
         star_and_degree: star_and_degree {
             compatible = "zmk,behavior-mod-morph";
             label = "STAR_AND_DEGREE";
-            bindings = <&kp KP_MULTIPLY>, <&none>;
+            bindings = <&kp KP_MULTIPLY>, <&degree>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
