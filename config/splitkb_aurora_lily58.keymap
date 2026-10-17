@@ -19,6 +19,17 @@
             bindings = <&kp LG(X) &kp U &kp S>;
             label = "PC_SLEEP";
         };
+
+        degree: degree {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT &kp KP_NUMBER_2 &kp KP_NUMBER_4 &kp KP_NUMBER_8>,
+                <&macro_release>;
+
+            label = "DEGREE";
+        };
     };
 
     behaviors {
@@ -26,24 +37,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "QUESTIONMARK_AND_SLASH";
             bindings = <&kp QUESTION>, <&kp SLASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        leftparenthesis_and_bracket: leftparenthesis_and_bracket {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LEFTPARENTHESIS_AND_BRACKET";
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp LEFT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        rightparenthesis_and_bracket: rightparenthesis_and_bracket {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RIGHTPARENTHESIS_AND_BRACKET";
-            bindings = <&kp RIGHT_PARENTHESIS>, <&kp RIGHT_BRACKET>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -62,6 +55,33 @@
             compatible = "zmk,behavior-mod-morph";
             label = "ESC_AND_TILDE";
             bindings = <&kp ESCAPE>, <&kp TILDE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        slash_and_grave: slash_and_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASH_AND_GRAVE";
+            bindings = <&kp KP_SLASH>, <&kp GRAVE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        minus_and_equals: minus_and_equals {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MINUS_AND_EQUALS";
+            bindings = <&kp KP_MINUS>, <&kp EQUAL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+
+        star_and_degree: star_and_degree {
+            compatible = "zmk,behavior-mod-morph";
+            label = "STAR_AND_DEGREE";
+            bindings = <&kp KP_MULTIPLY>, <&degree>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -94,11 +114,11 @@
 
         lower_layer {
             bindings = <
-&trans  &none  &none  &none   &none   &none                     &kp FSLH  &kp STAR  &kp KP_MINUS  &kp KP_EQUAL  &leftparenthesis_and_bracket  &rightparenthesis_and_bracket
-&trans  &none  &none  &none   &none   &none                     &kp N7    &kp N8    &kp N9        &kp PLUS      &kp DOT                       &trans
-&trans  &none  &none  &none   &none   &none                     &kp N4    &kp N5    &kp N6        &kp N0        &kp UP                        &trans
-&trans  &none  &none  &none   &none   &none   &none     &none   &kp N1    &kp N2    &kp N3        &kp LEFT      &kp DOWN                      &kp RIGHT
-                      &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans
+&trans  &none  &none  &none   &none   &none                     &slash_and_grave  &star_and_degree  &minus_and_equals  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LS(BACKSLASH)
+&trans  &none  &none  &none   &none   &none                     &kp KP_NUMBER_7   &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp PLUS          &kp DOT            &trans
+&trans  &none  &none  &none   &none   &none                     &kp KP_NUMBER_4   &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp KP_NUMBER_0   &kp UP             &trans
+&trans  &none  &none  &none   &none   &none   &none     &none   &kp KP_NUMBER_1   &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp LEFT          &kp DOWN           &kp RIGHT
+                      &trans  &trans  &trans  &trans    &trans  &trans            &trans            &trans
             >;
         };
 
