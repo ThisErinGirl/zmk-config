@@ -13,23 +13,26 @@
 
 / {
     macros {
-        pc_sleep_macro: pc_sleep {
+        pc_sleep_macro: pc_sleep_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LG(X) &kp U &kp S>;
-            label = "PC_SLEEP";
+            label = "PC_SLEEP_MACRO";
         };
-        degree_macro: degree {
+
+        degree_macro: degree_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            label = "DEGREE";
+            label = "DEGREE_MACRO";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N2 &kp KP_N4 &kp KP_N8>
-                , <&macro_release &kp LALT>
-                ;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N2 &kp KP_N4 &kp KP_N8>,
+                <&macro_release>,
+                <&kp LALT>;
         };
     };
 
