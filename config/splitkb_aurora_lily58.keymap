@@ -88,11 +88,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "PC_SLEEP";
             bindings = <&pc_sleep_macro>, <&none>;
-
             #binding-cells = <2>;
             tapping-term-ms = <1000>;
-            hold-trigger-on-release;
-            flavor = "tap-preferred";
         };
     };
 
