@@ -16,6 +16,8 @@
 
 &sensors { triggers-per-rotation = <30>; };
 
+&led_strip { chain-length = <34>; };
+
 &uc { default-mode = <UC_MODE_WIN_COMPOSE>; };
 
 / {
